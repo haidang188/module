@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <style>
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="row">
+<p><b>Amount</b></p>
+<input type="number" id="amount" name="amount">
+
+
+<p><b>From Currency</b></p>
+<select id="from">
+  <option value="VND">VND</option>
+  <option value="USD">USD</option>
+</select>
+
+<p><b>To Currency</b></p>
+<select id="to">
+  <option value="VND">VND</option>
+  <option value="USD">USD</option>
+</select>
+
+<button id="convert">Convert</button>
+</div>
+
+<p id="result"></p>
+<script>
+
+  function convertCurrency(){
+
+
+  let amount = parseFloat(document.getElementById('amount').value);
+
+  let from = document.getElementById('from').value;
+
+  let to = document.getElementById('to').value;
+
+  let rate = 1;
+  if (from === "USD" && to === "VND") rate = 25000;
+  if (from === "VND" && to === "USD") rate = 1/25000;
+
+  let result = amount * rate;
+
+  document.getElementById('result').innerHTML = "Result: " + result + " " + to;
+
+  }
+  document.getElementById('convert').addEventListener("click", convertCurrency);
+
+</script>
+</body>
+</html>

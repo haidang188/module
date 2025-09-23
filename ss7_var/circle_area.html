@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = area></p>
+<script>
+  let radius;
+  let area;
+
+  radius = parseFloat(prompt("Enter circle radius: "));
+  area = radius * radius * Math.PI;
+
+  document.getElementById('area').innerHTML = area;
+</script>
+</body>
+</html>

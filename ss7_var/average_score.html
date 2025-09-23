@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="average"></p>
+<p id="sum"></p>
+<script>
+  let physics;
+  let chemistry;
+  let biology;
+
+  physics = parseFloat(prompt("Enter physics point"));
+  chemistry = parseFloat(prompt("Enter chemistry point"));
+  biology = parseFloat(prompt("Enter biology point"));
+
+
+  let average = (physics + chemistry + biology) / 3;
+
+  let sum = physics + chemistry + biology;
+
+  document.getElementById('average').innerHTML = "<b>Average score: </b>" + average + "<br>";
+  document.getElementById('sum').innerHTML = "<b>Sum: </b>" + sum;
+
+
+
+</script>
+</body>
+</html>
