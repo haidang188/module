@@ -6,13 +6,17 @@
 </head>
 <body>
 <script>
-  let tuoi = parseInt(prompt("Nhap tuoi: "));
+    let tuoi = parseInt(prompt("Nhap tuoi: "));
 
-  if (tuoi >= 16) {
-    alert("Du tuoi vao lop 10");
-  } else if (tuoi < 16){
-    alert("Chua du tuoi vao lop 10");
-  }
+    if (tuoi < 0) {
+        alert("Tuoi khong hop le");
+    } else if (tuoi >= 16) {
+        alert("Du tuoi vao lop 10");
+    } else {
+        alert("Chua tuoi vao lop 10");
+    }
+
+
 </script>
 </body>
 </html>

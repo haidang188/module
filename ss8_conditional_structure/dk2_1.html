@@ -7,8 +7,14 @@
 <body>
 <script>
     let c = parseFloat(prompt("Nhap nhiet do C: "));
-    let f = c * 9 / 5 + 32;
-    alert("Nhiet do F: " + f);
+
+    if (isNaN(c)){
+        alert("Hay nhap so hop le");
+    } else {
+        let f = c * 9 / 5 + 32;
+        alert("Nhiet do F: " + f);
+    }
+
 </script>
 </body>
 </html>

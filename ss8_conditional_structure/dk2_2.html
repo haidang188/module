@@ -7,9 +7,14 @@
 <body>
 <script>
     let m = parseFloat(prompt("Nhap chieu dai m: "))
-    let f = m * 3.2808;
 
-    alert("Chieu dai f = " + f);
+    if (m < 0){
+        alert("Nhap chieu dai hop le:");
+    } else {
+        let f = m * 3.2808;
+        alert("Chieu dai f = " + f);
+    }
+
 </script>
 </body>
 </html>

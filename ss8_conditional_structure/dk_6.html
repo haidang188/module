@@ -6,20 +6,20 @@
 </head>
 <body>
 <script>
-  let a = parseInt(prompt("Nhap doanh so ban hang"));
-  let b = 0
+    let a = parseInt(prompt("Nhap doanh so ban hang"));
+    let b = 0
 
-  if (a < 0) {
-    alert("Doanh so khong hop le");
-  } else if (a < 10000000) {
-    b = a * 0.05;
-  } else if (a <= 20000000) {
-    b = a * 0.10;
-  } else {
-    b = a * 0.15;
-  }
+    if (a < 0) {
+        alert("Doanh so khong hop le");
+    } else if (a < 10000000) {
+        b = a * 0.05;
+    } else if (a <= 20000000) {
+        b = a * 0.10;
+    } else {
+        b = a * 0.15;
+    }
 
-  document.write("Hoa hong nhan duoc la: " + b);
+    document.write("Hoa hong nhan duoc la: " + b);
 </script>
 </body>
 </html>

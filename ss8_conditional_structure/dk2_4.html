@@ -8,8 +8,15 @@
 <script>
     let a = parseFloat(prompt("Nhap chieu dai a: "));
     let b = parseFloat(prompt("Nhap chieu rong b: "));
-    let s = a * b;
-    alert("Dien tich hcn la = " + s);
+
+    if (isNaN(a) || isNaN(b) || a < 0 || b < 0){
+        alert("Hay nhap chieu dai va chieu rong hop le!");
+    } else {
+        let s = a * b;
+        alert(`Dien tich hinh chu nhat la: ${s} `);
+    }
+
+
 </script>
 </body>
 </html>

@@ -6,12 +6,24 @@
 </head>
 <body>
 <script>
-  let m = parseInt(prompt("Nhap so phut goi: "));
-  let a= 25000;
-  let b = m * 500;
-  let tong = a + b;
+    let m = parseInt(prompt("Nhap so phut goi: "));
+    let a = 25000;
+    let b = m * 500;
+    let tong = a + b;
 
-  alert("Tong cuoc goi la: " + tong + "VND");
+    if (m <= 0) {
+        tong = a;
+    } else if (m <= 50) {
+        tong = a + m * 500;
+    } else {
+        tong = a + 50 * 500 + (m - 50) * 300;
+    }
+
+    alert("Tong cuoc goi la: " + tong + "VND");
+
+    // m: số phút
+    // a: giá tiền
+    // b: tiền cước
 </script>
 </body>
 </html>

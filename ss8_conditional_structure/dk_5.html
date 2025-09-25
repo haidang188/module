@@ -6,21 +6,24 @@
 </head>
 <body>
 <script>
-  let a = parseInt(prompt("Nhap diem kiem tra: "));
-  let b = parseInt(prompt("Nhap diem giua ky: "));
-  let c = parseInt(prompt("Nhap diem cuoi ky: "));
+    let a = parseInt(prompt("Nhap diem kiem tra: "));
+    let b = parseInt(prompt("Nhap diem giua ky: "));
+    let c = parseInt(prompt("Nhap diem cuoi ky: "));
 
-  let tong = (a + b + c) / 3;
+    let tong = (a + b + c) / 3;
 
-  if (tong >= 8.5) {
-    alert("Hoc luc gioi");
-  } else if (tong >= 7) {
-    alert("Hoc luc kha");
-  } else if (tong >= 5.5){
-    alert("Hoc luc trung binh");
-  } else {
-    alert("Hoc luc yeu");
-  }
+    if (a < 0 || a > 10 || b < 0 || b > 10 || c < 0 || c > 10) {
+        alert("Diem khong hop le!");
+    } else if (tong >= 8.5) {
+        alert("Hoc luc gioi");
+    } else if (tong >= 7) {
+        alert("Hoc luc kha");
+    } else if (tong >= 5.5) {
+        alert("Hoc luc trung binh");
+    } else {
+        alert("Hoc luc yeu");
+    }
+
 </script>
 </body>
 </html>

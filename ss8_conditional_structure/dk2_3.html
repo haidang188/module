@@ -7,9 +7,14 @@
 <body>
 <script>
     let a = parseInt(prompt("Nhap chieu dai a: "));
-    let s = a * a;
 
-    alert("Dien tich hinh vuong = " + s);
+    if (a < 0) {
+        alert("Nhap chieu dai hop le!");
+    } else {
+        let s = a * a;
+        alert("Dien tich hinh vuong = " + s);
+    }
+
 </script>
 </body>
 </html>

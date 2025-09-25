@@ -8,9 +8,16 @@
 <script>
     let a = parseFloat(prompt("Nhap canh ke a: "));
     let b = parseFloat(prompt("Nhap canh ke b: "));
-    let s = (a * b) / 2;
 
-    alert("Dien tich tam giac vuong la: " + s);
+    if (isNaN(a) || isNaN(b) || a < 0 || b < 0){
+        alert("Hay nhap canh a va canh b hop le!");
+    } else {
+        let s = (a * b) / 2;
+        alert(`Dien tich tam giac vuong la ${s} `);
+    }
+
+
+
 </script>
 </body>
 </html>
