@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Nhap a: "));
+    let b = parseFloat(prompt("Nhap b: "));
+
+    if (a === 0 && b === 0) {
+        alert("Phuong trinh vo so nghiem");
+
+    } else if (a === 0 && b !== 0) {
+        alert("Phuong trinh vo nghiem ");
+    } else {
+        let x = -b / a;
+        alert("Nghiem cua phuong trinh la x =  " + x);
+    }
+
+</script>
+</body>
+</html>

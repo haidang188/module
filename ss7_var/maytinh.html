@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="num1" id="num1">
+<input type="num2" id="num2">
+<button onclick="sum()">+</button>
+<button onclick="subtraction()">-</button>
+<button onclick="multi()">*</button>
+<button onclick="division()">/</button>
+<p>Result: <span id="result"></span></p>
+</body>
+
+<script>
+  function sum(){
+    let num1 = +document.getElementById("num1").value;
+    let num2 = +document.getElementById("num2").value;
+    let sum = num1 + num2;
+    document.getElementById("result").innerText = sum;
+  }
+  function subtraction(){
+    let num1 = +document.getElementById("num1").value;
+    let num2 = +document.getElementById("num2").value;
+    let subtraction = num1 + num2;
+    document.getElementById("result").innerText = subtraction;
+
+  }
+  function multi(){
+    let num1 = +document.getElementById("num1").value;
+    let num2 = +document.getElementById("num2").value;
+    let multi = num1 * num2;
+    document.getElementById("result").innerText = multi;
+  }
+  function division(){
+    let num1 = +document.getElementById("num1").value;
+    let num2 = +document.getElementById("num2").value;
+    let division = num1 / num2;
+    document.getElementById("result").innerText = division;
+
+  }
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Nhap so tien luong: "))
+    let tax = 0;
+
+
+    if (a <= 5) {
+        tax = a * 0.05;
+    } else if (a <= 10){
+        tax = a * 0.10;
+    } else if (a <= 18) {
+        tax = a * 0.15;
+    } else if (a <= 32) {
+        tax = a * 0.20;
+    } else if (a <= 52) {
+        tax = a * 0.25;
+    } else if (a <= 80) {
+        tax = a * 0.30;
+    } else {
+        tax = a * 0.35;
+    }
+    alert(`Thue TNCN phai dong la: ${tax} trieu`);
+
+</script>
+</body>
+</html>
