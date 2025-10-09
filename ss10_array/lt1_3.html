@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--/* Viết chương trình khởi tạo một mảng số nguyên.-->
+<!--Hiển thị giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng. */-->
+
+<script>
+  let numbers = [1, 2, 5, 6 ,8 ,10, 12, 18];
+  let max = numbers[0];
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+    sum += numbers[i];
+  }
+  let average = sum / numbers.length;
+
+  document.write("Giá trị lớn nhất trong mảng là: " + max + "<br>");
+  document.write("Giá trị trung bình các phần tử là: " + average);
+</script>
+</body>
+</html>

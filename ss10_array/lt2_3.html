@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = ['a','1','b','2','c','3','d','5','e','6','f','8'];
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= '0' && arr[i] <= '9') {
+      document.write(arr[i] + "<br>");
+      count++;
+    }
+  }
+
+  document.write("Số lượng ký tự là số trong mảng: " + count);
+</script>
+</body>
+</html>

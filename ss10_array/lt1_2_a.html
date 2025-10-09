@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [2, 3, 5, 66, 88, 99, 123, 999, 1, 6, 8];
+    let max = numbers[0];
+    let index = -1;
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+            index = i;
+        }
+    }
+    document.write(`Giá trị lơn nhất trong mảng là: ${max} <br>`);
+    document.write(`Vị trí của phần tử đó là: ${index}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--/*Viết chương trình khởi tạo hoặc nhập vào một mảng số nguyên gồm 10 phần tử.-->
+<!--Nhập hoặc tạo một phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không.-->
+<!--Nếu V thuộc mảng, xóa V khỏi mảng (dịch các phần tử bên phải V sang vị trí của V và gán 0 cho phần tử cuối cùng của mảng). */-->
+
+<script>
+    // let numbers = [1, 2, 5, 6, 8, 9, 10, 12, 16, 18];
+    // let V = +prompt("Nhập vào 1 số nguyên: ");
+    // let index = -1;
+    //
+    // for (let i = 0; i < numbers.length; i++) {
+    //   if (numbers[i] === V) {
+    //     index = i;
+    //     break;
+    //   }
+    // }
+    // if (index !== -1) {
+    //   for (let i = index; i < numbers.length; i++) {
+    //     numbers[i] = numbers[i + 1];
+    //   }
+    //   numbers[numbers.length - 1] = 0;
+    //
+    //   document.write(" Đã xóa " + V + " khỏi mảng" + "<br>");
+    //   document.write("Mảng sau khi xóa: " + numbers);
+    // }
+    // else {
+    //   document.write(V + " không có trong mảng");
+    // }
+
+    let arr = [2, 3, 6, 9, 8, 5];
+    let v = 6;
+    document.write(`Truoc khi xoa: ${arr} <br>`);
+    let index = -1;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === v) {
+            index = i;
+            break;
+        }
+    }
+    if (index !== -1) {
+        for (let i = index; i < arr.length; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[arr.length - 1] = 0;
+        document.write(`Phan tu ${v} xoa nam o vi tri ${index} <br> Mang sau khi xoa ${arr}`);
+    } else {
+        document.write(`Khong ton tai ${v} trong mang`);
+    }
+
+
+</script>
+</body>
+</html>

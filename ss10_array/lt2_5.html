@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let str1 = prompt("Nhập vào chuỗi thứ nhất: ");
+  let str2 = prompt("Nhập vào chuỗi thứ hai: ");
+
+  let isSame = true;
+  if (str1.length !== str2.length) {
+    isSame = false;
+  } else {
+    for (let i = 0; i < str1.length; i++) {
+      if (str1[i] !== str2[i]) {
+        isSame = false;
+        break;
+      }
+    }
+  }
+  if (isSame) {
+    document.write("Hai chuỗi giống nhau");
+  } else {
+    document.write("Hai chuỗi khác nhau");
+  }
+</script>
+</body>
+</html>

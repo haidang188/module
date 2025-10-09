@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* Mảng đa chiều là mảng mà bên trong chứa các phần tử là mảng khác
+    * Mảng 2 chiều là mảng mà mỗi phần tử bên trong nó là 1 mảng 1 chiều
+    * indexOf: trả về vị trí của phần tử đầu tiên nếu có trong mảng, tham số tứ 2 là vị trí bắt đầu xét
+    * nếu truyền vào giá trị không tồn tại trả về -1
+    * include: trả về true nếu phần tử tồn tại trong mảng, ngược lại trở về false  */
+
+    let arr = [3,4,2,5,6,77,121];
+    let max = Math.max(...arr);
+    document.write(max);
+
+    // let arr = [6,1,2,7,5,2, 3,2];
+    // let index = arr.indexOf(2);
+    // document.write(index) // 1
+
+    // let arr = [6,1,2,7,5,2, 3,2];
+    // let index = arr.lastIndexOf(2);
+    // document.write(index) // 1
+
+
+    // let arr = [6,1,2,7,5,2, 3,2];
+    // let check = arr.includes(2);
+    // document.write(check) // 1
+
+    // let arr2D = [
+    //     [1,2,3],
+    //     [4,5,6],
+    //     [7,8,9]
+    // ];
+    // for (let i = 0; i < arr2D.length; i++) {
+    //     for (let j = 0; j < arr2D[i].length; j++) {
+    //         document.write(arr2D[i][j] + "<br>");
+    //     }
+    // }
+
+
+    // let m = +prompt("Độ dài mảng cha: ");
+    // let n = +prompt("Độ dài mảng con: ");
+    //
+    // let arr2D = new Array(m);
+    // for (let i = 0; i < m; i++) {
+    //     arr2D[i] = new Array(n);
+    //     for (let j = 0; j < n; j++) {
+    //         arr2D[i][j] = +prompt(`Nhập phần tử vị trí thứ ${i},${j}`)
+    //     }
+    //
+    // }
+    // document.write(arr2D)
+
+</script>
+</body>
+</html>

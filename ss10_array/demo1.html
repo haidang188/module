@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let arr = [6,2,5,1,8,10];
+    // // document.write("Độ dài của mảng: " + arr.length + ", bao gồm các phần tử:  " + arr + "<br>");
+    // // //document.write("Phần tử ở vị trí đầu tiên: " + arr[0] );
+    //
+    //
+    //
+    // for (let i = arr.length - 1; i>= 0; i--) {
+    //     //  document.write("Phần tử ở vị trí thứ : " + arr[i] + "<br>" );
+    //     document.write(`Phần tử ở vị trí thứ ${i}: ${arr[i]}  <br> `);
+    // }
+
+    // let arr = [6,2,5,1,8,10];
+    // document.write("Sử dụng for i <br>")
+    // for (let i = 0; i < arr.length; i++) {
+    //     document.write(`Phần tử ở vị trí thứ ${i}: ${arr[i]}  <br> `);
+    // }
+    // document.write("<hr> Sử dụng for in <br>");
+    // for (let i in arr) {
+    //     document.write(`${i} <br>` );
+    // }
+    //
+    // document.write("<hr> Sử dụng for of <br>");
+    // for (let i of arr) {
+    //     document.write(`${i} <br>` );
+    // }
+
+/*
+* for i: duyệt được ở bất kỳ vị trí nào trong mảng, có thể trả về vị trí + giá trị của phần từ
+* for in: duyệt từ đầu đến cuôí mảng, trả về vị trí của phần tử trong mảng
+* for of: duyệt từ đầu đến cuối mảng, trả về giá trị của phần tử trong manng  */
+
+
+
+    // /* Khởi tạo 1 mảng số nguyên có độ dài do người dùng tùy chọn */
+    //     let arr = new Array(3.5,4.5);
+    //     document.write(arr.length + "<br>");
+    //     document.write(arr + "<br>");
+    //
+    //     /* Nếu:
+    //     * n là số nguyên thì đây là độ dài của mảng
+    //     * n là chuỗi thì là phần tử của mảng */
+
+// // Khởi tạo 1 mảng số nguyên có độ dài do người dùng nhập
+//     let length = +prompt("Nhập độ dài: ");
+//     let numbers = new Array(length);
+//     for (let i = 0; i < length; i++) {
+//         numbers[i] = +prompt("Nhập giá trị: ")
+//     }
+//     document.write(numbers)
+
+    // let arrNum = [3,1,4,6,12,113];
+    //let arrNum2 = [10];
+
+    // arrow function
+    //arrNum.forEach(x => document.write(x + "<br>"))
+    /*
+    * push(): thêm 1 hoặc nhiều phần tử vào cuối mảng, trả về độ dài của mảng sau khi thêm phần tử
+    * pop(): xóa 1 phần tử ở cuối mảng, trả về phần tử bị xóa
+    * shift() : xóa phần tử đầu mảng, trả về phần tử bị xóa
+    * unshift() : thêm 1 hoặc nhiều phần tử vào đầu mảng, trả về độ dài của mảng sau khi thêm phần tử
+    * concat: nối mảng
+    * join(), toString(): chuyển mảng thành chuỗi. toString mặc định nối các phần tử bởi dấu phẩy, join() có thể quyết định kí tự nối chuỗi
+    * reverse(): đảo ngược mảng
+    * sort(): sắp xếp các phần tử trong mảng
+    * high order function/ callback function
+    * splice(a,b,c):
+    * a: vị trí (index) đặt con trỏ
+    * b: số lượng phần tử muốn xóa bên phải con trỏ
+    * c:... các phần tử được thêm vào vị trí đặt trỏ  */
+
+
+    // document.write(`Trước khi push: ${arrNum} <br>`);
+    // let sth =  arrNum.push(6,10,21);
+    // document.write(`Sau khi push: ${arrNum} <br>`);
+    // document.write(`${sth} <br>`)
+
+    // document.write(`Trước khi pop: ${arrNum} <br>`);
+    // let sth =  arrNum.pop();
+    // document.write(`Sau khi pop: ${arrNum} <br>`);
+    // document.write(`${sth} <br>`)
+
+
+    // document.write(`Trước khi push: ${arrNum} <br>`);
+    // let sth =  arrNum.shift();
+    // document.write(`Sau khi push: ${arrNum} <br>`);
+    // document.write(`${sth} <br>`)
+
+    // document.write(`Trước khi push: ${arrNum} <br>`);
+    // let sth =  arrNum.unshift(6);
+    // document.write(`Sau khi push: ${arrNum} <br>`);
+    // document.write(`${sth} <br>`)
+
+    // document.write(`Trước khi concat: ${arrNum} <br>`);
+    // let sth =  arrNum2.concat(arrNum);
+    // document.write(`Sau khi concat: ${sth} <br>`);
+    // document.write(`${sth} <br>`)
+
+
+    // document.write(`Truoc khi toString: ${arrNum}, kieu du lieu: ${typeof arrNum}<br>`);
+    // let str = arrNum.join("@");
+    // document.write(`Sau khi toString: ${str}, kieu du lieu: ${typeof str}<br>`);
+
+    // document.write(`Truoc khi reverse: ${arrNum}<br>`);
+    // let str = arrNum.reverse();
+    // document.write(`Sau khi reverse: ${str}<br>`);
+
+    // document.write(`Truoc khi sort: ${arrNum}<br>`);
+    // let str = arrNum.sort();
+    // document.write(`Sau khi sort: ${str}<br>`);
+
+    // document.write(`Truoc khi sap xep: ${arrNum}<br>`);
+    // let str = arrNum.sort(function(a,b) {
+    //     return a - b;
+    //     // return b - a;
+    // });
+    // document.write(`Sau khi sap xep: ${str}<br>`);
+
+    // document.write(`Truoc khi sap xep: ${arrNum}<br>`);
+    // let str = arrNum.sort((a,b) => a - b); {
+    // }
+    // document.write(`Sau khi sap xep: ${str}<br>`);
+
+    // let arrNum = [3,31,4,6,12,113];
+    // document.write(`Truoc khi splice: ${arrNum}<br>`);
+    // arrNum.splice(1,3,5);
+    // document.write(`Sau khi splice: ${arrNum}<br>`);
+
+    // let arrNum = [3,31,4,6,12,113];
+    // document.write(`Truoc khi splice: ${arrNum}<br>`);
+    // arrNum.splice(3,2,6);
+    // document.write(`Sau khi splice: ${arrNum}<br>`);
+
+    let arrNum = [3,31,4,6,12,113];
+    document.write(`Truoc khi splice: ${arrNum}<br>`);
+    arrNum.splice(4,1,5);
+    document.write(`Sau khi splice: ${arrNum}<br>`);
+</script>
+</body>
+</html>

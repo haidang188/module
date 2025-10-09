@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Sắp xếp theo thứ tự tăng dần
+    let a = [40, 100, 1, 5, 25, 10];
+    a.sort((a, b) => a - b);
+    console.log(a);
+
+    // Sắp xếp theo thứ tự giảm dần
+    let b = [40, 100, 1, 5, 25, 10];
+    b.sort((a, b) => b - a);
+    console.log(b);
+
+    // Sắp xếp theo thứ tự mặc định (dùng hàm sort)
+    let cars = ["Toyota", "Subaru", "BMW"];
+    cars.sort();
+    console.log(cars); // KQ: ["BMW", "Subaru", "Toyota "]
+
+    // Đảo ngược thứ tự (dùng hàm reverse() )
+    let cars = ["BMW", "Subaru", "Toyota"];
+    cars.reverse();
+    console.log(cars);
+
+    // Sử dụng thuộc tính .length để lấy độ dài của mảng
+    let cars = ["Toyota", "Subaru", "BMW"];
+    console.log(cars.length); // KQ = 3
+
+    // Thêm vào cuối mảng (dùng hàm push() )
+    let cars = ["Toyota", "Subaru", "BMW"];
+    cars.push("Kia");
+    console.log(cars); // ["Toyota", "Subaru", "BMW", "Kia"];
+
+    // Thêm vào đầu mảng (dùng hàm unshift() )
+    let cars = ["Toyota", "Subaru", "BMW"];
+    cars.unshift("Ferrari");
+    console.log(cars); // ["Ferrari", "Toyota", "Subaru", "BMW"];
+
+    //Xóa phần tử cuói mảng (dùng hàm pop() )
+    let cars = ["Toyota", "Subaru", "BMW"];
+    cars.pop();
+    console.log(cars); // ["Toyota", "Subaru"]
+
+    // Xóa phần tử đầu mảng (dùng hàm shift() )
+    let cars = ["Toyota", "Subaru", "BMW"];
+    cars.shift();
+    console.log(cars); //["Subaru", "BMW"]
+
+
+</script>
+</body>
+</html>

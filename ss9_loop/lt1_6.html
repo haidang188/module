@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let count = 0;
+  let num = 1;
+  let sum = 0;
+
+  while (count < 30) {
+    if (num % 7 === 0) {
+      document.write(num + " ");
+      sum += num;
+      count++;
+    }
+    num++;
+  }
+  document.write(" <br> Tong = " + sum);
+
+
+  // let sum = 0;
+  // for (let i = 0; i < 30; i++) {
+  //     sum += i * 7;
+  // }
+  // document.write(sum);
+</script>
+</body>
+</html>

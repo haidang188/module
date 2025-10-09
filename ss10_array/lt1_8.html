@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--/*Viết chương trình khởi tạo hoặc nhập vào một mảng số nguyên gồm 10 phần tử.-->
+<!--Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị mảng đã được sắp xếp. */-->
+
+<script>
+    let numbers = [3, 2, 5, 1, 6, 9, 8, 10, 12, 16];
+
+    for (let i = 0; i < numbers.length - 1; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            if (numbers[i] < numbers[j]) {
+                let temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+    }
+    document.write("Mảng sau khi sắp xếp giảm dần là: " + numbers);
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let str = prompt("Enter a string: ");
+    //
+    // let eng = ["Hello", "Name", "Address", "Phone"];
+    // let vna = ["Xin chào", "Tên", "Địa chỉ", "Số điện thoại"];
+    // let result = "Không tìm thấy";
+    //
+    // for (let i = 0; i < eng.length; i++) {
+    //     if (str === eng[i]) {
+    //         result = vna[i];
+    //         break;
+    //     }
+    // }
+    // document.write(result);
+
+
+   //  let arrEng = ["hello", "goodbye","class"];
+   //  let arrVie = ["xin chào", "tạm biệt", "lớp học"];
+   //  let keyword = prompt("Nhập từ cần tìm: ");
+   // /* Dùng hàm */
+   //  // let index = arrEng.indexOf(keyword);
+   //  // if (index !== -1) {
+   //  //     document.write(arrVie[index]);
+   //  // } else {
+   //  //     document.write("Không tìm thấy");
+   //  // }
+
+    /* Dùng vòng lặp */
+    let arrEng = ["hello", "goodbye","class"];
+    let arrVie = ["xin chào", "tạm biệt", "lớp học"];
+    let keyword = prompt("Nhập từ cần tìm: ");
+    let index = -1
+
+    for (let i = 0; i < arrEng.length; i++) {
+        if (keyword === arrEng[i]) {
+            index = i;
+            break
+        }
+    }
+    if (index !== -1) {
+        document.write(arrVie[index]);
+    } else {
+        document.write("Không tìm thấy");
+    }
+</script>
+</body>
+</html>
