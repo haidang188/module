@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Đảo ngược chuỗi
+    let str = "acbca";
+    let result = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    document.write(`Chuoi sau khi dao nguoc la: ${result} <br>`);
+
+    // Đếm số ký tự khác nhau
+    let count = 0;
+    let unique = "";
+    for (let i = 0; i < str.length; i++) {
+        if (!unique.includes(str[i])) {
+            unique += str[i];
+            count++;
+        }
+    }
+    document.write(`Cac ky tu khac nhau la: ${unique} <br>`);
+    document.write(`So ky tu khac nhau la: ${count} <br>`);
+
+    // Kiểm tra chuỗi đối xứng
+    if (str === result) {
+        document.write(`${str} la chuoi doi xung`);
+
+    } else {
+        document.write(`${str} khong phai chuoi doi xung`);
+    }
+</script>
+</body>
+</html>

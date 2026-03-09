@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [3, 1, 4, 2, 5, 3, 4];
+    let sum = 0;
+
+    // Tính tổng
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    document.write("Tong cac phan tu trong mang la: " + sum + "<br>");
+
+    // Xóa trùng
+    let resultArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (!resultArr.includes(arr[i])) {
+        resultArr.push(arr[i]);
+        }
+
+    }
+    document.write(`Mang sau khi xoa phan tu trung la: ${resultArr} <br>`);
+
+    // Sắp xếp tăng dần
+    for (let i = 0; i < resultArr.length - 1; i++) {
+        for (let j = 0; j < resultArr.length - 1 - i; j++) {
+            if (resultArr[j] > resultArr[j + 1]) {
+                let temp = resultArr[j];
+                resultArr[j] = resultArr[j + 1];
+                resultArr[j + 1] = temp;
+            }
+        }
+    }
+    document.write(`Mang sau khi sap xep la: ${resultArr} <br>`);
+
+
+
+
+
+</script>
+</body>
+</html>

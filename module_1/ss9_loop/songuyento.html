@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /* Số nguyên tố là số nguyên dương bắt đầu từ 2 và chỉ có 2 ước là 1 và chính nó  */
+
+  let number = +prompt("Nhập số cần kiểm tra: ");
+  let count = 0; // đếm ước số
+  for (let i = 1; i <= number; i++) {
+    if (number % i === 0) {
+      count++;
+    }
+  }
+  if (count === 2) {
+    alert(number + "Là số nguyên tố");
+  } else {
+    alert(number + "Không phải là số nguyên tố");
+  }
+
+  //
+  // let number = +prompt("Nhập số cần kiểm tra: "); // 9
+  // let count = 0;
+  //
+  // for (let i = 1; i <= number; i++) {
+  //     // vòng 1: i = 1 -> i <= 9 -> true -> 9 % 1 === 0 -> true -> count++ -> count = 1 -> i++ -> 1 = 2
+  //     // vòng 2: i = 2 -> i <= 9 -> true -> 9 % 2 === 0 -> false -> count giữ nguyên -> count = 1 -> i++ -> i = 3
+  //     // vòng 3: i = 3 -> i <= 9 -> true -> 9 % 3 === 0 -> true -> count++ -> count = 2 -> i++ -> i = 4
+  //     // vòng 4: i = 4 -> i <= 9 -> true -> 9 % 4 === 0 -> false -> count giữ nguyên -> i++ -> i = 5
+  //     // vòng 5: i = 5 -> i <= 9 -> true -> 9 % 5 === 0 -> false -> count giữ nguyên -> i++ -> i = 6
+  //     // vòng 6: i = 6 -> i <= 9 -> true -> 9 % 6 === 0 -> false -> count giữ nguyên -> i++ -> i = 7
+  //     // vòng 7: i = 7 -> i <= 9 -> true -> 9 % 7 === 0 -> false -> count giữ nguyên -> i++ -> i = 8
+  //     // vòng 8: i = 8 -> i <= 9 -> true -> 9 % 8 === 0 -> false -> count giữ nguyên -> i++ -> i = 9
+  //     // vòng 9: i = 9 -> i <= 9 -> true -> 9 % 9 === 0 -> true -> count++ -> count = 3
+  //     if (number % i === 0) {
+  //         count++;
+  //     }
+  // }
+  // if (count === 2) {
+  //     alert(number + "Là số nguyên tố");
+  // } else {
+  //     alert(number + "Không phải là số nguyên tố");
+  // }
+</script>
+</body>
+</html>

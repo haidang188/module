@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let arr;
+    while (true) {
+        let input = prompt("Nhap vao 1 mang so nguyen: ");
+
+        arr = input.split(",").map(x => Number(x.trim()));
+
+        if (arr.length < 6) {
+            alert("Mang phai co it nhat 6 phan tu");
+            continue;
+        } else if (arr.length > 20) {
+            alert("Mang toi da 20 phan tu");
+            continue;
+        }
+        // Kiem tra so nguyen duong
+        let isAllPositive = arr.every(x => Number.isInteger(x) && x > 0);
+        if (!isAllPositive) {
+            alert("Mang chi chua so nguyen duong");
+            continue;
+        }
+        break;
+    }
+    document.write("Mang vua nhap la: [" + arr.join(", ") + "]");
+</script>
+</body>
+</html>

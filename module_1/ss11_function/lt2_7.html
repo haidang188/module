@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function swapNumber(a, b){
+
+  let temp = a;
+  a = b;
+  b = temp;
+
+  document.write(`Sau khi doi cho: a = ${a}, b = ${b}`);
+  }
+  let num1 = +prompt("Nhap so nguyen thu nhat: ");
+  let num2 = +prompt("Nhap so nguyen thu hai: ");
+
+  if (isNaN(num1) || isNaN(num2) || !Number.isInteger(num1) || !Number.isInteger(num2)) {
+    alert("Vui long nhap so nguyen hop le");
+  } else {
+    document.write(`Truoc khi doi cho: a = ${num1}, b = ${num2} <br>`);
+    swapNumber(num1, num2);
+  }
+</script>
+</body>
+</html>

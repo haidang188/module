@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên CODEGYM</title>
+</head>
+<body>
+<h2>HỆ THỐNG QUẢN LÝ HỌC VIÊN CODEGYM</h2>
+<button onclick="add()">Thêm học viên</button>
+<button onclick="edit()">Sửa thông tin học viên</button>
+<button onclick="del()">Xóa học viên</button>
+
+<h3>Danh sách học viên (<span id="total"></span>)</h3>
+<p id="output"></p>
+
+<script>
+    class Student {
+        constructor(id, name, classname, email, dob, module) {
+            this.id = id;
+            this.name = name;
+            this.classname = classname;
+            this.email = email;
+            this.dob = dob;
+            this.module = module;
+        }
+
+        getId() { return this.id; }
+        getName() { return this.name; }
+        getClassname() { return this.classname; }
+        getEmail() { return this.email; }
+        getDob() { return this.dob; }
+        getModule() { return this.module; }
+
+        setName(newName) { this.name = newName; }
+        setClassname(newClassname) { this.classname = newClassname; }
+        setEmail(newEmail) { this.email = newEmail; }
+        setDob(newDob) { this.dob = newDob; }
+        setModule(newModule) { this.module = newModule; }
+    }
+
+    let s1 = new Student("HV-0001", "Nguyen Van A", "C082025", "nguyenvana@gmail.com", "12/12/2002", "1");
+    let s2 = new Student("HV-0002", "Tran Thi B", "C082025", "tranthib@gmail.com", "10/01/2003", "2");
+    let s3 = new Student("HV-0003", "Le Van C", "C082025", "levanc@gmail.com", "25/09/2001", "3");
+    let s4 = new Student("HV-0004", "Pham Thi D", "C082025", "phamthid@gmail.com", "12/08/2002", "4");
+    let s5 = new Student("HV-0005", "Phan Van K", "C082025", "phanvank@gmail.com", "22/06/2000", "5");
+    let storage = [s1, s2, s3, s4, s5];
+
+    // ✅ Hiển thị danh sách học viên
+    function display() {
+        let sout = `<table border="1" style="border-collapse: collapse" cellspacing="10" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Mã HV</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>Email</th>
+                <th>Ngày sinh</th>
+                <th>Module</th>
+            </tr>
+        </thead>
+        <tbody>`;
+
+        for (let i = 0; i < storage.length; i++) {
+            sout += `<tr>
+                <td>${storage[i].getId()}</td>
+                <td>${storage[i].getName()}</td>
+                <td>${storage[i].getClassname()}</td>
+                <td>${storage[i].getEmail()}</td>
+                <td>${storage[i].getDob()}</td>
+                <td>${storage[i].getModule()}</td>
+            </tr>`;
+        }
+
+        sout += `</tbody></table>`;
+        document.getElementById('output').innerHTML = sout;
+        document.getElementById('total').innerHTML = storage.length;
+    }
+
+    display();
+
+    // ✅ Kiểm tra hợp lệ
+    function validate(id, name, dob, module, isEdit = false) {
+        const idRegex = /^HV-\d{4}$/;
+        const dobRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
+        if (!idRegex.test(id)) {
+            alert("❌ Mã học viên không hợp lệ! Định dạng phải là HV-XXXX (ví dụ: HV-0006)");
+            return false;
+        }
+        if (!isEdit && storage.some(s => s.getId() === id)) {
+            alert("❌ Mã học viên đã tồn tại!");
+            return false;
+        }
+        if (name.trim() === "" || name.length > 50) {
+            alert("❌ Tên không được rỗng và tối đa 50 ký tự!");
+            return false;
+        }
+        if (!dobRegex.test(dob)) {
+            alert("❌ Ngày sinh không hợp lệ! Đúng dạng dd/mm/yyyy");
+            return false;
+        }
+        if (isNaN(module) || module < 1 || module > 6) {
+            alert("❌ Module phải nằm trong khoảng 1 - 6!");
+            return false;
+        }
+        return true;
+    }
+
+    // ✅ 1. Thêm học viên (dùng prompt)
+    function add() {
+        let studentId = prompt("Nhập mã học viên (HV-XXXX):");
+        let studentName = prompt("Nhập họ tên học viên:");
+        let studentClass = prompt("Nhập lớp:");
+        let studentEmail = prompt("Nhập email:");
+        let studentDob = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+        let studentModule = prompt("Nhập module (1-6):");
+
+        if (!validate(studentId, studentName, studentDob, studentModule)) return;
+
+        let student = new Student(studentId, studentName, studentClass, studentEmail, studentDob, studentModule);
+        storage.push(student);
+        alert("✅ Thêm học viên thành công!");
+        display();
+    }
+
+    // ✅ 2. Sửa thông tin học viên (dùng prompt)
+    function edit() {
+        let editId = prompt("Nhập mã học viên cần sửa:");
+        let index = storage.findIndex(s => s.getId() === editId);
+
+        if (index === -1) {
+            alert("❌ Mã học viên không tồn tại!");
+            return;
+        }
+
+        let newName = prompt("Nhập họ tên mới:", storage[index].getName());
+        let newClass = prompt("Nhập lớp mới:", storage[index].getClassname());
+        let newEmail = prompt("Nhập email mới:", storage[index].getEmail());
+        let newDob = prompt("Nhập ngày sinh mới (dd/mm/yyyy):", storage[index].getDob());
+        let newModule = prompt("Nhập module mới (1-6):", storage[index].getModule());
+
+        if (!validate(editId, newName, newDob, newModule, true)) return;
+
+        storage[index].setName(newName);
+        storage[index].setClassname(newClass);
+        storage[index].setEmail(newEmail);
+        storage[index].setDob(newDob);
+        storage[index].setModule(newModule);
+
+        alert("✅ Cập nhật học viên thành công!");
+        display();
+    }
+
+    // ✅ 3. Xóa học viên (dùng prompt + confirm)
+    function del() {
+        let delId = prompt("Nhập mã học viên cần xóa:");
+        let index = storage.findIndex(s => s.getId() === delId);
+
+        if (index === -1) {
+            alert("❌ Mã học viên không tồn tại!");
+            return;
+        }
+
+        let check = confirm(`Bạn có chắc chắn muốn xóa học viên tên ${storage[index].getName()} không?`);
+        if (check) {
+            storage.splice(index, 1);
+            alert("✅ Xóa học viên thành công!");
+            display();
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Đối xứng chuỗi
+  function isPalindrome(str) {
+    let first = 0;
+    let last = str.length - 1;
+    while (first < last) {
+      if (str[first] !== str[last]) {
+        return false;
+      }
+      first++;
+      last--;
+    }
+    return true;
+  }
+  let input = prompt("Nhap vao chuoi can kiem tra: ");
+  if (isPalindrome(input)) {
+    document.write(`${input} la chuoi doi xung`);
+  } else {
+    document.write(`${input} khong phai chuoi doi xung doi`);
+  }
+</script>
+</body>
+</html>

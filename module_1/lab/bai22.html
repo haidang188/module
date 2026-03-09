@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Hàm làm tròn điểm (không dùng Math.ceil)
+  function lamTronDiem(grade) {
+    // Nếu điểm dưới 50 thì không làm tròn
+    if (grade < 50) {
+      return grade;
+    }
+
+    // Tìm bội số của 5 tiếp theo
+    let nextMultiple = grade;
+
+    // Dùng vòng lặp tăng đến khi tìm được số chia hết cho 5
+    while (nextMultiple % 5 !== 0) {
+      nextMultiple++;
+    }
+
+    // Nếu khoảng cách < 3 thì làm tròn lên
+    if (nextMultiple - grade < 3) {
+      return nextMultiple;
+    }
+
+    // Ngược lại giữ nguyên
+    return grade;
+  }
+
+  // -------------------------------
+  // Kiểm tra
+  console.log(lamTronDiem(84)); // 85
+  console.log(lamTronDiem(77)); // 77
+  console.log(lamTronDiem(44)); // 44
+
+</script>
+</body>
+</html>

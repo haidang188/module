@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = prompt("Nhap vao 1 mang so nguyen");
+    let arr = input.split(",").map(Number);
+    let count = 0;
+    let k = +prompt("Nhap vao 1 so nguyen duong");
+
+    while (isNaN(k) || k < 0 || Number.isNaN(k)) {
+        alert("Gia tri khong hop le. Hay nhap lai");
+        k = +prompt("Nhap vao 1 so nguyen duong");
+    }
+    document.write(`Mang vua nhap la: ${arr} <br> `);
+    document.write(`Cac cap so co tong chia het cho ${k} la: <br> `);
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if ((arr[i] + arr[j]) % k === 0) {
+                document.write(`(${arr[i]}, ${arr[j]})<br>`);
+                count++
+            }
+        }
+    }
+    document.write("So cap thoa man la: " + count);
+
+</script>
+</body>
+</html>

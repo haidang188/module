@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isMin(num1, num2, num3) {
+    let min = num1;
+    if (num2 < min) {
+      min = num2;
+    }
+    if (num3 < min) {
+      min = num3;
+    }
+    return min;
+  }
+
+  let a = +prompt("Nhap so thu nhat: ");
+  let b = +prompt("Nhap so thu hai: ");
+  let c = +prompt("Nhap so thu ba: ");
+
+  if (isNaN(a) || isNaN(b) || isNaN(c)) {
+    alert("Vui long nhap gia tri hop le");
+  } else {
+    let result = isMin(a,b,c);
+    document.write(`So nho nhat trong ba so ${a}, ${b}, ${c} la: ${result}`);
+  }
+</script>
+</body>
+</html>

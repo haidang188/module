@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function findConstellation(starName) {
+
+        for (let i = 0; i < stars.length; i++) {
+            if (stars[i] === starName) {
+                return constellations[i];
+            }
+        }
+        return null;
+    }
+
+    let inputStar = prompt("Nhap ten ngoi sao: ");
+    let result = findConstellation(inputStar);
+
+    if (result !== null) {
+        document.write(`Ngoi sao ${inputStar} thuoc chom sao ${result}`);
+    } else {
+        document.write(`Khong tim thay ngoi sao co ten ${inputStar}`);
+    }
+
+
+</script>
+</body>
+</html>

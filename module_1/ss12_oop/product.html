@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>HỆ THỐNG QUẢN LÝ HỌC VIÊN CODEGYM</h2>
+<input type="text" placeholder="New Product" id="name">
+<input type="text" placeholder="Price" id="price">
+<input type="text" placeholder="Color" id="color">
+
+<button onclick="add()">Add</button>
+<br>
+<!--Display All Products-->
+Display All Products <span id="total"></span>
+
+<p id="output"></p>
+<script>
+    class Product {
+        constructor(name, price, color) {
+            this.name = name;
+            this.price = price;
+            this.color = color;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(newName) {
+            this.name = newName;
+        }
+        getPrice() {
+            return this.price;
+        }
+        setPrice(newPrice) {
+            this.price = newPrice;
+        }
+        getColor() {
+            return this.color;
+        }
+        setColor(newColor) {
+            this.color = newColor;
+        }
+
+    }
+    let p1 = new Product("Nokia", 200, "Black");
+    let p2 = new Product("Samsung", 300, "Black");
+    let p3 = new Product("iPhone", 500, "Black");
+    let p4 = new Product("Xiaomi", 500, "Black");
+    let storage = [p1,p2,p3,p4];
+
+    function display() {
+        let sout = `<table border="1px" style="border-collapse: collapse " cellspacing="10" cellpadding="10">
+                    <thead>
+                         <tr>
+                            <th>Product Name</th>
+                             <th colspan="2">Action</th>
+                         </tr>
+                     </thead>
+                    <tbody>`
+
+
+        for (let i = 0; i < storage.length; i++) {
+            sout += `<tr>
+            <td>${storage[i].getName()}</td>
+            <td>${storage[i].getPrice()}</td>
+            <td>${storage[i].getColor()}</td>
+
+            <td><button onclick="edit(${i})">Edit</button></td>
+            <td><button onclick="del(${i})">Delete</button></td>
+    </tr>`
+        }
+        sout += `</tbody></table>`
+        document.getElementById('output').innerHTML = sout;
+        document.getElementById('total').innerHTML = storage.length;
+    }
+
+    display();
+
+    function add() {
+        let productName = document.getElementById('name').value;
+        let productPrice = document.getElementById('price').value;
+        let productColor = document.getElementById('color').value;
+        let product = new Product(productName, productPrice, productColor);
+        storage.unshift(productName);
+        document.getElementById('input').value = '';
+        display();
+    }
+
+    function edit(i) {
+        let newName = prompt("")
+        storage[i] = newName;
+        display();
+    }
+
+    function del(i) {
+        let check = confirm(`Ban co chac chan xoa san pham ten ${storage[i]}`);
+        storage.splice(i, 1);
+        display();
+    }
+</script>
+</body>
+</html>

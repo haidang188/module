@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--  Dao nguoc mang-->
+    // let arr = [3, 2, 6, 4, 8, 7, 9];
+    // let first = 0;
+    // let last = arr.length - 1;
+    //
+    // while (first < last) {
+    //     let temp = arr[first];
+    //     arr[first] = arr[last];
+    //     arr[last] = temp;
+    //     first++;
+    //     last--;
+    // }
+    // // Sắp xếp mảng từ bé đến lớn
+    // // arr.sort((a, b) => a - b);
+    // arr.sort((a, b) => b - a);
+    // document.write(arr);
+
+    // Cach 2
+    let arr = [3, 2, 6, 4, 8, 7, 9];
+    let first = 0;
+    let last = arr.length - 1;
+
+    while (first < last) {
+        let temp = arr[first];
+        arr[first] = arr[last];
+        arr[last] = temp;
+        first++;
+        last--;
+    }
+    for (let i = 0; i< arr.length; i++) {
+        for (let j = 0; j < arr.length - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    document.write(arr);
+
+
+</script>
+</body>
+</html>
+
+<!--
+lan 1: first = 0 last = 6 -> arr[first] = 3 -> arr[last] = 9 -> 9,2,6,4,8,7,3
+lan 2: first = 1 last = 5 -> arr[first] = 2 -> arr[last] = 7 -> 9,7,6,4,8,2,3
+lan 3: first = 2 last = 4 -> arr[first] = 6 -> arr[last] = 8 -> 9,7,8,4,6,2,3
+
+-->
+

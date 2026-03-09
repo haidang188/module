@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPoint(grade) {
+        if (grade < 50) {
+            return grade;
+        }
+        let nextRound = grade;
+        while (nextRound % 5 !== 0) {
+            nextRound++;
+        }
+        let gap = nextRound - grade;
+
+        if (gap < 3) {
+            return nextRound;
+        }
+        return grade;
+    }
+
+    let input = prompt("Nhap vao diem so");
+    document.write(isPoint(input));
+
+
+
+</script>
+</body>
+</html>

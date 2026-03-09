@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class ParentClass {
+        constructor(name, dob) {
+            this.name = name;
+            this.dob = dob;
+        }
+
+        setName(newName) {
+            this.name = newName;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setDob(newDob) {
+            this.dob = newDob;
+        }
+
+        getDob() {
+            return this.dob;
+        }
+
+        toString() {
+            return `Ten: ${this.name}, Ngay sinh: ${this.dob}`;
+        }
+    }
+
+    class childClass extends ParentClass {
+        constructor(name, dob, subject) {
+            super(name, dob);
+            this.subject = subject;
+        }
+
+    }
+    let parent = new ParentClass("Dang", "18/08/2002");
+    let child = new childClass("Hai", "18/08/2032", "IT");
+    document.write(child.subject);
+    document.write(parent);
+    document.write(child);
+</script>
+</body>
+</html>

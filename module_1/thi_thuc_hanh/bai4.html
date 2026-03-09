@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý khách hàng</title>
+</head>
+<body>
+<h2>HỆ THỐNG QUẢN LÝ KHÁCH HÀNG </h2>
+<input type="text" placeholder="Mã khách hàng" id="id"> <br>
+<input type="text" placeholder="Họ tên" id="name"> <br>
+<input type="text" placeholder="Số điện thoại" id="phone"> <br>
+<input type="text" placeholder="Địa chỉ" id="address"> <br>
+<input type="text" placeholder="Email" id="email"> <br>
+
+
+<button id="mainButton" onclick="add()">Thêm khách hàng</button>
+
+<br>
+<h3>Danh sách khách hàng (<span id="total"></span>)</h3>
+<p id="output"></p>
+<script>
+    class Customer {
+        constructor(id, name, phone, address, email) {
+            this.id = id;
+            this.name = name;
+            this.phone = phone;
+            this.address = address;
+            this.email = email;
+        }
+        getId() {
+            return this.id;
+        }
+        setId(newId) {
+            this.id = newId;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(newName) {
+            this.name = newName;
+        }
+        getPhone() {
+            return this.phone;
+        }
+        setPhone(newPhone) {
+            this.phone = newPhone;
+        }
+        getAddress() {
+            return this.address;
+        }
+        setAddress(newAddress) {
+            this.address = newAddress;
+        }
+        getEmail() {
+            return this.email;
+        }
+        setEmail(newEmail) {
+            this.email = newEmail;
+        }
+
+    }
+    let c1 = new Customer("001", "Nguyen Van A", "0888112233", "Da Nang", "nguyenvana@gmail.com");
+    let c2 = new Customer("002", "Le Thi C", "0988667777", "Ha Noi", "lethic@gmai.com");
+    let c3 = new Customer("003", "Pham Van B", "0987123456", "Nghe An", "phamvanb@gmail.com");
+    let c4 = new Customer("004", "Nguyen Van T", "0986338899", "Ha Tinh", "nguyenvant@gmail.com");
+    let c5 = new Customer("005", "Duong Van H", "0988667755", "Vinh", "duongvanh@gmail.com");
+    let storage = [c1,c2,c3,c4,c5];
+
+    function display() {
+        let sout = `<table border="1px" style="border-collapse: collapse " cellspacing="10" cellpadding="10">
+                    <thead>
+                         <tr>
+                            <th>ID</th>
+                             <th>Name</th>
+                             <th>Phone</th>
+                             <th>Address</th>
+                             <th>Email</th>
+                         </tr>
+                     </thead>
+                    <tbody>`
+
+        for (let i = 0; i < storage.length; i++) {
+            sout += `<tr>
+            <td>${storage[i].getId()}</td>
+            <td>${storage[i].getName()}</td>
+            <td>${storage[i].getPhone()}</td>
+            <td>${storage[i].getAddress()}</td>
+            <td>${storage[i].getEmail()}</td>
+
+
+</tr>`
+        }
+        sout += `</tbody></table>`
+        document.getElementById('output').innerHTML = sout;
+        document.getElementById('total').innerHTML = storage.length;
+
+    }
+    display();
+
+
+    function add() {
+        let customerId = document.getElementById('id').value;
+        let customerName = document.getElementById('name').value;
+        let customerPhone = document.getElementById('phone').value;
+        let customerAddress = document.getElementById('address').value;
+        let customerEmail = document.getElementById('email').value;
+
+        let customer = new Customer(customerId,customerName, customerPhone, customerAddress, customerEmail);
+        storage.push(customer);
+        display();
+        alert("Them khach hang thanh cong");
+    }
+</script>
+</body>
+</html>

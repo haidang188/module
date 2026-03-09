@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function square(number) {
+    //let result = number * number;
+    let result = Math.pow(number, 2);
+    return result;
+  }
+  let input = +prompt("Nhap vao 1 so: ");
+  let output = square(input);
+  document.write(`Binh phuong cua ${input} la ${output}`);
+</script>
+</body>
+</html>

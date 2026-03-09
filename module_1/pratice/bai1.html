@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+<!--    Đảo ngược chuỗi-->
+
+// Cach 1
+//     let str = "hello";
+//     let result = "";
+//
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     document.write(result);
+
+// Cach 2
+
+    // let str = "hello";
+    // let result = str.split("").reverse().join("");
+    //
+    // document.write(result);
+
+// Cach 3
+
+    function reverseString(str) {
+        let result = "";
+
+        for (let i = str.length - 1; i >= 0; i--) {
+            result += str[i];
+        }
+        return result;
+    }
+    let input = prompt("Nhap vao chuoi");
+    let output = reverseString(input);
+    document.write(output);
+
+</script>
+</body>
+</html>

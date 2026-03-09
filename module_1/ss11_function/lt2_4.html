@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isDigit(char) {
+    if (char >= '0' && char <= '9') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  let input = prompt("Nhap mot ky tu: ");
+
+  if (input.length !== 1) {
+    alert("Vui long nhap mot ky tu ");
+  } else {
+    let result = isDigit(input);
+    document.write(`Ky tu: ${input} la ky tu so:  ${result}`);
+  }
+</script>
+</body>
+</html>

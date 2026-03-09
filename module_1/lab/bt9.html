@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý học viên CODEGYM</title>
+</head>
+<body>
+<h2>HỆ THỐNG QUẢN LÝ HỌC VIÊN CODEGYM</h2>
+
+<input type="text" placeholder="Mã học viên (HV-XXXX)" id="id"> <br>
+<input type="text" placeholder="Họ tên (tối đa 50 ký tự)" id="name"> <br>
+<input type="text" placeholder="Lớp" id="classname"> <br>
+<input type="email" placeholder="Email" id="email"> <br>
+<input type="text" placeholder="Ngày sinh (dd/mm/yyyy)" id="dob"> <br>
+<input type="number" placeholder="Module (1-6)" id="module"> <br><br>
+
+<button id="mainButton" onclick="add()">Thêm học viên</button>
+<button onclick="clearInput()">Làm mới</button>
+
+<h3>Danh sách học viên (<span id="total"></span>)</h3>
+<div id="output"></div>
+
+<script>
+  class Student {
+    constructor(id, name, classname, email, dob, module) {
+      this.id = id;
+      this.name = name;
+      this.classname = classname;
+      this.email = email;
+      this.dob = dob;
+      this.module = module;
+    }
+  }
+
+  let storage = [
+    new Student("HV-0001", "Nguyen Van A", "C082025", "a@gmail.com", "12/12/2002", 1),
+    new Student("HV-0002", "Tran Thi B", "C082025", "b@gmail.com", "10/10/2003", 2),
+    new Student("HV-0003", "Le Van C", "C082025", "c@gmail.com", "05/06/2001", 3),
+  ];
+
+  let editingIndex = -1; // -1 nghĩa là đang thêm mới, không phải sửa
+
+  // ✅ Hiển thị danh sách
+  function display() {
+    let sout = `<table border="1" style="border-collapse: collapse" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Mã HV</th>
+      <th>Họ tên</th>
+      <th>Lớp</th>
+      <th>Email</th>
+      <th>Ngày sinh</th>
+      <th>Module</th>
+      <th colspan="2">Hành động</th>
+    </tr>
+  </thead><tbody>`;
+
+    for (let i = 0; i < storage.length; i++) {
+      sout += `<tr>
+      <td>${storage[i].id}</td>
+      <td>${storage[i].name}</td>
+      <td>${storage[i].classname}</td>
+      <td>${storage[i].email}</td>
+      <td>${storage[i].dob}</td>
+      <td>${storage[i].module}</td>
+      <td><button onclick="edit(${i})">Sửa</button></td>
+      <td><button onclick="del(${i})">Xóa</button></td>
+    </tr>`;
+    }
+    sout += `</tbody></table>`;
+    document.getElementById('output').innerHTML = sout;
+    document.getElementById('total').innerText = storage.length;
+  }
+  display();
+
+  // ✅ Kiểm tra hợp lệ
+  function validate(id, name, dob, module, isEdit = false) {
+    const idRegex = /^HV-\d{4}$/;
+    const dobRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
+    if (!idRegex.test(id)) {
+      alert("❌ Mã học viên không hợp lệ! Định dạng phải là HV-XXXX (VD: HV-0001)");
+      return false;
+    }
+    if (!isEdit && storage.some(s => s.id === id)) {
+      alert("❌ Mã học viên đã tồn tại!");
+      return false;
+    }
+    if (name.trim() === "" || name.length > 50) {
+      alert("❌ Tên không được rỗng và tối đa 50 ký tự!");
+      return false;
+    }
+    if (!dobRegex.test(dob)) {
+      alert("❌ Ngày sinh không hợp lệ! (Đúng định dạng dd/mm/yyyy)");
+      return false;
+    }
+    if (isNaN(module) || module < 1 || module > 6) {
+      alert("❌ Module phải nằm trong khoảng 1-6!");
+      return false;
+    }
+    return true;
+  }
+
+  // ✅ Thêm học viên mới
+  function add() {
+    let id = document.getElementById('id').value.trim();
+    let name = document.getElementById('name').value.trim();
+    let classname = document.getElementById('classname').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let dob = document.getElementById('dob').value.trim();
+    let module = document.getElementById('module').value.trim();
+
+    if (!validate(id, name, dob, module)) return;
+
+    let newStudent = new Student(id, name, classname, email, dob, Number(module));
+    storage.push(newStudent);
+    display();
+    clearInput();
+    alert("✅ Thêm học viên thành công!");
+  }
+
+  // ✅ Đổ dữ liệu vào input khi sửa
+  function edit(index) {
+    const s = storage[index];
+    document.getElementById('id').value = s.id;
+    document.getElementById('name').value = s.name;
+    document.getElementById('classname').value = s.classname;
+    document.getElementById('email').value = s.email;
+    document.getElementById('dob').value = s.dob;
+    document.getElementById('module').value = s.module;
+
+    document.getElementById('id').disabled = true; // không cho đổi mã học viên
+    document.getElementById('mainButton').innerText = "Cập nhật học viên";
+    document.getElementById('mainButton').onclick = update;
+    editingIndex = index;
+  }
+
+  // ✅ Cập nhật học viên (sau khi sửa)
+  function update() {
+    let name = document.getElementById('name').value.trim();
+    let classname = document.getElementById('classname').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let dob = document.getElementById('dob').value.trim();
+    let module = document.getElementById('module').value.trim();
+
+    if (!validate(storage[editingIndex].id, name, dob, module, true)) return;
+
+    storage[editingIndex].name = name;
+    storage[editingIndex].classname = classname;
+    storage[editingIndex].email = email;
+    storage[editingIndex].dob = dob;
+    storage[editingIndex].module = Number(module);
+
+    alert("✅ Cập nhật học viên thành công!");
+    resetForm();
+    display();
+  }
+
+  // ✅ Xóa học viên
+  function del(index) {
+    let confirmDelete = confirm(`Bạn có chắc muốn xóa học viên ${storage[index].name}?`);
+    if (confirmDelete) {
+      storage.splice(index, 1);
+      display();
+      alert("✅ Đã xóa học viên!");
+    }
+  }
+
+  // ✅ Làm mới form (xóa trắng + trở lại chế độ thêm)
+  function clearInput() {
+    document.getElementById('id').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('classname').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('dob').value = '';
+    document.getElementById('module').value = '';
+  }
+
+  // ✅ Đặt lại form về chế độ “thêm mới”
+  function resetForm() {
+    clearInput();
+    editingIndex = -1;
+    document.getElementById('id').disabled = false;
+    document.getElementById('mainButton').innerText = "Thêm học viên";
+    document.getElementById('mainButton').onclick = add;
+  }
+</script>
+</body>
+</html>

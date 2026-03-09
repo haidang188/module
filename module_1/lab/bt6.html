@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Bài 6: Cho xâu kí tự. Hãy đếm số lượng ký tự khác nhau trong xâu đó
+    Ví dụ: s = "cabca", thì kết quả differentSymbolsNaive(s) = 3.
+    Có 3 ký tự khác nhau là a, b và c*/
+
+    function differentSymbolsNaive(s) {
+
+        let uniqueChars = new Set(s);
+        return uniqueChars.size;
+
+    }
+    let s = prompt("Nhap vao chuoi ky tu:");
+    let result = differentSymbolsNaive(s);
+
+    document.write(`Chuoi ky tu vua nhap: ${s} <br>`);
+    document.write(`So ky tu khac nhau: ${result}`);
+</script>
+</body>
+</html>

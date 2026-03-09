@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPositiveInteger (number) {
+        if (Number.isInteger(number) && number > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let input = +prompt("Nhap mot so: ");
+    if (isNaN(input)) {
+        alert("Gia tri nhap vao khong hop le");
+    } else {
+        let result = isPositiveInteger(input);
+        document.write(`So ${input} la so nguyen duong: ${result}`);
+    }
+</script>
+</body>
+</html>

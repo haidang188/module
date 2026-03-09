@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--    Bài 3: Cho người dùng nhập vào 1 cặp số nguyên bất kỳ. Tìm ước chung lớn nhất và bội chung nhỏ nhất của chúng.-->
+
+
+    function isGcd(a, b) {
+        while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    function isLcm(a, b) {
+        return Math.abs(a * b) / isGcd(a, b);
+    }
+
+    let a = parseInt(prompt("Nhập so thu nhat: "));
+    let b = parseInt(prompt("Nhap so thu hai: "));
+
+    let ucln = isGcd(a, b);
+    let bcnn = isLcm(a, b);
+
+    document.write(`So thu nhat: ${a} <br> `);
+    document.write(`So thu hai: ${b} <br> `);
+    document.write(`Uoc chung lon nhat: ${ucln} <br>`);
+    document.write(`Boi chung nho nhat: ${bcnn}`);
+
+
+</script>
+</body>
+</html>

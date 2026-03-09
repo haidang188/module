@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isArea(r) {
+  let area = Math.PI * Math.pow(r,2);
+  return area;
+  }
+
+  function isPerimeter(r) {
+  let perimeter = 2 * Math.PI * r;
+  return perimeter;
+  }
+  let radius = +prompt("Nhap ban kinh hinh tron: ");
+  if (isNaN(radius) || radius <= 0) {
+    alert("Gia tri ban kinh khong hop le. Vui long nhap lai");
+  } else {
+    let s = isArea(radius);
+    let c = isPerimeter(radius);
+
+    document.write(`Ban kinh hinh tron: ${radius} <br>`);
+    document.write(`Chu vi hinh tron la: ${c.toFixed(2)} <br>`);
+    document.write(`Dien tich hinh tron la: ${s.toFixed(2)} <br>`);
+  }
+</script>
+</body>
+</html>

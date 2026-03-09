@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Hàm làm tròn điểm
+  function lamTronDiem(diem) {
+    // Nếu điểm dưới 50 => không làm tròn
+    if (diem < 50) {
+      return diem;
+    }
+
+    // Tìm số tròn tiếp theo chia hết cho 5
+    let diemTronTiepTheo = diem;
+
+    // Tăng cho đến khi gặp số chia hết cho 5
+    while (diemTronTiepTheo % 5 !== 0) {
+      diemTronTiepTheo++;
+    }
+
+    // Kiểm tra khoảng cách < 3 thì làm tròn
+    let khoangCach = diemTronTiepTheo - diem;
+
+    if (khoangCach < 3) {
+      return diemTronTiepTheo;
+    }
+
+    return diem; // Không làm tròn
+  }
+
+  // -------------------------------------
+  // Kiểm thử
+  console.log(lamTronDiem(84)); // 85
+  console.log(lamTronDiem(77)); // 77
+  console.log(lamTronDiem(44)); // 44
+
+</script>
+</body>
+</html>

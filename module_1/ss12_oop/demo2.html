@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person {
+        constructor(name, dob, phone) {
+            this.name = name;
+            this.dob = dob;
+            this.phone = phone;
+        }
+        /* Thể hiện tính bao đóng thông qua
+        * Get: giúp lấy ra thông tin
+        * Set: giúp thiết lập lại thông tin  */
+
+        getName() {
+            return this.name;
+        }
+        setName(newName) {
+            this.name = newName;
+        }
+
+        talk(mess) {
+            document.write(mess);
+        }
+        displayInformation() {
+            return(`Ten: ${this.name}, Ngay sinh: ${this.dob}, Sdt: ${this.phone} <br>`);
+        }
+
+    }
+
+    let person1 = new Person("Dang", "18/08/2002", "0889329886");
+    // document.write(person1.name);
+    // document.write(person1.dob);
+    // document.write(person1.phone);
+
+    // document.write(`Ban dau doi tuong co ten: ${person1.name}, ngay sinh: ${person1.dob}, sdt: ${person1.phone} <br>`);
+    document.write(`Ban dau: ${person1.displayInformation()}`);
+    person1.setName("Dang");
+    person1.dob = "12/12/2002";
+    person1.phone = "0989666999";
+    // document.write(`Sau khi thay doi doi tuong co ten: ${person1.name}, ngay sinh: ${person1.dob}, sdt: ${person1.phone}`);
+    document.write(`Sau khi thay doi: ${person1.displayInformation()} <br>`);
+</script>
+</body>
+</html>

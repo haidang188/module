@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//     /*Bài 2: Cho người dùng nhập vào 1 số nguyên bất kỳ. Hiển thị cặp số nguyên tô bao quanh sô được nhập vào.
+// Ví dụ: nhập vào 6 -> cặp số 5 7 hoặc 12 -> cặp 11 13. */
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        } else if (number % 2 === 0) {
+            return false;
+        }
+        for (let i = 2; i < Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+    let num = +prompt("");
+    let arr = [];
+    for (let i = 6; i >= 0; i--) {
+        if (isPrime(i)) {
+            arr.push(i);
+            break;
+        }
+    }
+
+    for (let i = num; true; i++) {
+        if (isPrime(i)) {
+            arr.push(i);
+            break;
+        }
+    }
+    document.write(arr);
+
+</script>
+</body>
+</html>

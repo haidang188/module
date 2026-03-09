@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isChar(arr, char) {
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === char) {
+        count++
+      }
+    }
+    if (count === 0) {
+      return -1;
+    }
+    return count;
+  }
+
+  let arrChar = ['a','b','c','a','b','c','a','b'];
+  let inputChar = prompt("Nhap 1 ky tu can kiem tra: ");
+
+  if (inputChar.length !== 1) {
+    alert("Vui long nhap dung 1 ky tu");
+  } else {
+    let result = isChar(arrChar, inputChar);
+    if (result === -1) {
+      document.write(`Ky tu '${inputChar} khong co trong mang'`);
+    } else {
+      document.write(`Ky tu '${inputChar} xuat hien ${result} lan trong mang'`); 
+    }
+  }
+</script>
+</body>
+</html>

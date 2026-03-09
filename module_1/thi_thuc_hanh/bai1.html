@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sum = 0;
+    let input = prompt("Nhap cac phan tu: ");
+    let arr = input.split(",").map(Number);
+
+    if (arr.length > 20) {
+        alert("Cac phan tu khong vuot qua 20");
+    } else {
+        let isValid = true;
+        for (let i = 0; i < arr.length; i++) {
+            if (!Number.isInteger(arr[i])) {
+                isValid = false;
+                break;
+            }
+        }
+        if (!isValid) {
+            alert("Cac so nhap vao phai la so nguyen")
+        } else {
+            document.write(`Mang vua nhap la: ${arr} <br>`);
+            document.write(`Cac so chia het cho 3 va 5 la: `);
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+                    document.write(`${arr[i] + " "}`);
+                    sum += arr[i];
+                }
+            }
+            document.write(`Tong cac so boi chung cua 3 va 5 la: ${sum}`);
+        }
+    }
+
+
+</script>
+</body>
+</html>

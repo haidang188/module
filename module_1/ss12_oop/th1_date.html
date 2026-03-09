@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class MyDate {
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        getDay() {
+            return this.day;
+        }
+
+        getMonth() {
+            return this.month;
+        }
+
+        getYear() {
+            return this.year;
+        }
+
+        setDay(day) {
+            this.day = day;
+        }
+
+        setMonth(month) {
+            this.month = month;
+        }
+
+        setYear(year) {
+            this.year = year;
+        }
+
+        setDate(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        toString() {
+            let dd = this.day.toString().padStart(2, '0');
+            let mm = this.month.toString().padStart(2, '0');
+            let yyyy = this.year.toString();
+            return (`${dd}/${mm}/${yyyy}`);
+        }
+
+
+    }
+
+    let date1 = new MyDate(18, 8, 2002);
+    document.write(`Ngay ban dau: ${date1.toString()} <br>`);
+    date1.setDate(12, 12, 2005);
+    document.write(`Ngay sau khi thay doi: ${date1.toString()}`);
+
+
+</script>
+</body>
+</html>

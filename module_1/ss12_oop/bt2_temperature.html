@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Temperature {
+    constructor(celsius) {
+      if (celsius < -273) {
+        celsius = -273;
+      }
+      this.celsius = celsius;
+
+    }
+    toFahrenheit() {
+      return this.celsius * 1.8 + 32;
+    }
+    toKelvin() {
+      return this.celsius + 273.15;
+    }
+  }
+  let temperature1 = new Temperature(25);
+
+  document.write(`Nhiet do C: ${temperature1.celsius}<br>`);
+  document.write(`Nhiet do F: ${temperature1.toFahrenheit()}<br>`);
+  document.write(`Nhiet do K: ${temperature1.toKelvin()}<br>`);
+</script>
+</body>
+</html>

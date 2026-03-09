@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr;
+    while (true) {
+        let input = prompt("Nhap 1 mang so nguyen: ");
+        arr = input.split(",");
+
+        if (arr.length < 6) {
+            alert("Mang phai co it nhat 6 phan tu");
+            continue;
+        } else if (arr.length > 20) {
+            alert("Mang toi da 20 phan tu");
+            continue;
+        } else {
+            break;
+        }
+
+    }
+    document.write("Mang vua nhap la: " + arr + "<br>");
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(arr[i]);
+    }
+
+    let maxSum = arr[0] + arr[arr.length - 1];
+    let a = arr[0];
+    let b = arr[arr.length - 1];
+
+    for (let i = 0; i < arr.length / 2; i++) {
+        let j = arr.length - 1 - i;
+        let sum = arr[i] + arr[j];
+
+        if (sum > maxSum) {
+            maxSum = sum;
+            a = arr[i];
+            b = arr[j];
+        }
+    }
+    document.write("Cap doi xung lon nhat la: (" + a + "," + b + ") <br> ");
+    document.write("Tong cap doi xung lon nhat: " + maxSum + "<br>");
+
+    // 2. Dem
+    let number = parseInt(prompt("Nhap vao 1 so nguyen: "));
+    let count = 0;
+
+    document.write("Cac cap chia het cho " + number + " la: <br> ");
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            let sum = arr[i] + arr[j];
+            if (sum % number === 0) {
+                document.write("(" + arr[i] + ", "+ arr[j] + ")" + "<br>");
+                count++
+            }
+        }
+    }
+    document.write("Tong so cap chia het cho " + number + " la: " + count + "<br>");
+
+// 3. Xoa
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        let check = false;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] === newArr[j]) {
+                check = true;
+                break;
+            }
+        }
+        if (check === false) {
+            newArr.push(arr[i]);
+        }
+    }
+
+    document.write("Mang sau khi loai bo phan tu trung: " + newArr);
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//     /*
+//     * Bài 1: Cho người dùng khởi tạo 1 mảng số nguyên độ dài tùy chọn (tối đa 20 phần tử, tối thiểu 6 phần tử).
+// và 1 số nguyên bất kỳ. (60p)
+// 1. Hiển thị cặp phần tử đối xứng có tổng cao nhất
+// 2. Đếm tổng cộng có bao nhiêu cặp phần tử chia hết cho số nguyên được nhập vào, và hiển thị các cặp phần tử đấy.
+// 3. Loại bỏ các phần tử trùng lặp trong mảng, Hiển thị mảng sau khi được loại bỏ. */
+
+
+    /* Xét độ dài đúng vơi yêu cầu: Số nguyên +  6 -> 20
+     * Số nguyên bất kỳ
+     * => Viết 1 hàm kiểm tra số có phải là số nguyên không -> return true hoặc false
+     * Yêu cầu 1: push sum -> arrSum [] -> findMax
+     */
+    // 1a
+    function findMaxSumOfPairNum(arr) {
+        let max = arr[0] + arr[arr.length - 1];
+        let first = 1;
+        let last = arr.length - 2;
+        let num1 = arr[0];
+        let num2 = arr[arr.length - 1];
+        while (first < last) {
+            let temp = arr[first] + arr[last];
+            if (max < temp) {
+                max = temp;
+                num1 = arr[first];
+                num2 = arr[last];
+            }
+            first++;
+            last--;
+        }
+        return [num1, num2];
+    }
+
+    let array = [2, 3, 4, 1, 2, 6];
+    let result = findMaxSumOfPairNum(array);
+    document.write(result);
+
+    //1b
+
+    // let arr = [2,3,1,5,2,3,5,1];
+    // let num = 5;
+    // let count = 0;
+    // // vòng lặp lồng nhau
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let j = i + 1; j < arr.length ; j++) {
+    //         let sum = arr[i] + arr[j];
+    //         if (sum % num === 0) {
+    //             count++;
+    //         }
+    //     }
+    // }
+    // document.write(count);
+
+//     1c. Dùng includes
+//     let arr = [2,3,1,5,2,3,5,1];
+//     let resultArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         if (!resultArr.includes(arr[i])) {
+//             resultArr.push(arr[i]);
+//         }
+//     }
+//     document.write(resultArr);
+//
+// Cach 2. Vòng lặp
+//     let arr = [2,3,1,5,2,3,5,1];
+//     let resultArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = 0; j < resultArr.length; j++) {
+//             if (!resultArr.includes(arr[i])) {
+//                 resultArr.push(arr[i]);
+//             }
+//         }
+//     }
+//     document.write(resultArr);
+//
+//     //Cach 3 Sử dụng Set. Trùng là bỏ
+//     let arr = [2,3,1,5,2,3,5,1];
+//     let resultArr = new Set(arr);
+//     console.log(resultArr);
+
+</script>
+</body>
+</html>

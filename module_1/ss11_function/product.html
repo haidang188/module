@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="New Product" id="input">
+<button onclick="add()">Add</button>
+<br>
+<!--Display All Products-->
+Display All Products <span id="total"></span>
+
+<p id="output"></p>
+</table>
+<script>
+    let storage = ["Nokia", "iPhone", "Samsung", "Xiaomi"];
+
+    function display() {
+        let sout = `<table border="1px" style="border-collapse: collapse " cellspacing="10" cellpadding="10">
+                    <thead>
+                         <tr>
+                            <th>Product Name</th>
+                             <th colspan="2">Action</th>
+                         </tr>
+                     </thead>
+                    <tbody>`
+
+
+        for (let i = 0; i < storage.length; i++) {
+            sout += `<tr>
+            <td>${storage[i]}</td>
+            <td><button onclick="edit(${i})">Edit</button></td>
+            <td><button onclick="del(${i})">Delete</button></td>
+    </tr>`
+        }
+        sout += `</tbody></table>`
+        document.getElementById('output').innerHTML = sout;
+        document.getElementById('total').innerHTML = storage.length;
+    }
+
+    display();
+
+    function add() {
+        let productName = document.getElementById('input').value;
+        storage.unshift(productName);
+        document.getElementById('input').value = '';
+        display();
+    }
+
+    function edit(i) {
+        let newName = prompt("")
+        storage[i] = newName;
+        display();
+    }
+
+    function del(i) {
+        let check = confirm(`Ban co chac chan xoa san pham ten ${storage[i]}`);
+        storage.splice(i, 1);
+        display();
+    }
+</script>
+</body>
+</html>

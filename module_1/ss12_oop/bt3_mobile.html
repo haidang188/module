@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Mobile {
+    constructor(name) {
+      this.name = name;
+      this.battery = 100;
+      this.isOn = false;
+      this.draft = "";
+
+    }
+    checkStatus() {
+      if (this.isOn) {
+        document.write(`${this.name} dang bat <br>`);
+      } else {
+        document.write(`${this.name} dang tat <br>`);
+      }
+    }
+    turnOn() {
+      this.isOn = true;
+      document.write(`${this.name} da bat may <br>`);
+    }
+    turnOff() {
+      this.isOn = false;
+      document.write(`${this.name} da tat may <br>`);
+    }
+    chargeBattery() {
+      if (this.battery < 100) {
+        this.battery++;
+      }
+      document.write(`${this.name} dang sac... Pin hien tai: ${this.battery}% <br>`);
+    }
+  }
+  let nokia = new Mobile("Nokia");
+  nokia.checkStatus();
+  nokia.turnOn();
+  nokia.chargeBattery();
+  nokia.turnOff();
+
+
+
+
+</script>
+</body>
+</html>

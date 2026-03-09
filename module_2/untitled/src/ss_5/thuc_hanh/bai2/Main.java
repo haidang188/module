@@ -1,0 +1,13 @@
+package ss_5.thuc_hanh.bai2;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Mazda 3", "Skyactiv 3");
+        System.out.println(Car.numberOfCars);
+        Car car2 = new Car("Mazda 6", "Skyactiv 3");
+        System.out.println(Car.numberOfCars);
+        Car car3 = new Car("Mazda 7", "Skyactiv 3");
+        System.out.println(Car.numberOfCars);
+
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Bài 5: Cho 2 mảng A và B chứa số nguyên. Tìm ra một mảng đã được sắp xếp chứa các phần tử xuất hiện trong mảng B
+nhưng lại không xuất hiện A
+Chú ý các phần tử giống nhau chỉ tính là 1 lần xuất hiện
+Ví dụ:  A=[7,2,5,3,5,3] và B=[7,2,5,4,6,3,5,3] thì kết quả missingValue(A, B) = [4, 6]*/
+
+    function missingValue(A,B) {
+        let uniqueA = new Set(A);
+        let uniqueB = new Set(B);
+
+        let result = [];
+
+        for (let value of uniqueB) {
+            if (!uniqueA.has(value)) {
+                result.push(value);
+            }
+        }
+        result.sort((x,y) => x - y);
+        return result;
+    }
+
+    let inputA = prompt("Nhap cac so nguyen mang A: ");
+    let inputB = prompt("Nhap cac so nguyen mang B: ");
+
+    let A = inputA.split(",").map(Number);
+    let B = inputB.split(",").map(Number);
+
+    let result = missingValue(A,B);
+
+    document.write(`Cac phan tu mang A: [${A}] <br>`);
+    document.write(`Cac phan tu mang B: [${B}] <br>`);
+
+    document.write(`Cac phan tu co trong B nhung khong co trong A: [${result}]`);
+</script>
+</body>
+</html>

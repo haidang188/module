@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isFactorial (number) {
+    let result = 1;
+
+    if (number < 0) {
+      return "Khong the tinh giai thua so am";
+    }
+    for (let i = 1; i <= number; i++) {
+      result *= i;
+    }
+    return result;
+  }
+
+  let input = +prompt("Nhap vao 1 so nguyen: ");
+   if (isNaN(input) || !Number.isInteger(input)) {
+     alert("Gia tri nhap vao khong hop le. Vui long nhap lai");
+   } else {
+     let output = isFactorial(input);
+     document.write(`Giai thua cua ${input} la ${output}`);
+   }
+</script>
+</body>
+</html>
