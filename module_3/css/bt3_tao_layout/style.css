@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+
+
+}
+.logo {
+    font-weight: bold;
+
+}
+
+.menu {
+    margin-left: 20px;
+}
+.menu a {
+    color: #ccc;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.menu a.active {
+    color:white;
+    font-weight: bold;
+}
+
+.login {
+    color: #ccc;
+    margin-left: auto;
+}
+
+.container {
+    display: flex;
+    min-height: 80vh;
+    flex: 1;
+}
+
+.sidebar-left {
+    width: 200px;
+    background: #eee;
+    padding: 20px;
+}
+.sidebar-left a {
+    display: block;
+    margin: 50px;
+    color: #007bff;
+    text-decoration: none;
+}
+.content {
+    width: 70%;
+    padding: 20px;
+}
+.content h1 {
+    margin-bottom: 10px;
+}
+
+.content hr {
+    margin: 20px 0;
+}
+
+
+.sidebar-right {
+    width: 200px;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.ads {
+    background: #ddd;
+    padding: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+.footer {
+    background: #555;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .container {
+        flex-direction: row;
+    }
+
+    .content {
+        width: 70%;
+    }
+
+    .sidebar-right {
+        width: 30%;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+@media screen and (min-width: 992px) {
+
+    .sidebar-left {
+        display: block;
+        width: 15%;
+    }
+
+    .content {
+        width: 70%;
+    }
+
+    .sidebar-right {
+        width: 15%;
+    }
+}
+
+
+
+
+
