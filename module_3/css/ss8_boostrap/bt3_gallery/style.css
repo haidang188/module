@@ -1,0 +1,67 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.item {
+    flex: 1 1 calc(25% - 20px); /* 4 cột */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+
+.item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+
+.item:hover img {
+    transform: scale(1.05);
+}
+
+
+.item p {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+
+@media (max-width: 700px) {
+    .item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+
+@media (max-width: 500px) {
+    .item {
+        flex: 1 1 100%;
+    }
+}
