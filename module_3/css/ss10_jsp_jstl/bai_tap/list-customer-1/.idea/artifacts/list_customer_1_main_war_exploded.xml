@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="list-customer-1.main:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/list_customer_1_main_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="list-customer-1.main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0" />
+          <element id="library" level="project" name="Gradle: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0" />
+          <element id="library" level="project" name="Gradle: jakarta.el:jakarta.el-api:4.0.0" />
+          <element id="library" level="project" name="Gradle: jakarta.xml.bind:jakarta.xml.bind-api:3.0.0" />
+          <element id="library" level="project" name="Gradle: com.sun.activation:jakarta.activation:2.0.0" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="list-customer-1.main/web/Web Gradle : list-customer-1-1.0-SNAPSHOT.war" />
+    </root>
+  </artifact>
+</component>
