@@ -9,8 +9,8 @@ public class ProductService implements IProductService {
     private ProductRepository productRepo = new ProductRepository();
 
     @Override
-    public List<Product> findAll(int limit, int offset) {
-        return productRepo.findAll(limit, offset);
+    public List<Product> findAll() {
+        return productRepo.findAll();
     }
 
     @Override

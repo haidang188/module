@@ -11,22 +11,20 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository {
 
-    private static final String SELECT_ALL = "SELECT * FROM products LIMIT ? OFFSET ?";
+    private static final String SELECT_ALL = "SELECT * FROM products";
     private static final String INSERT_SQL = "INSERT INTO products(name, price, quantity, category_id) VALUES (?, ?, ?, ?)";
     private static final String DELETE_SQL = "DELETE FROM products WHERE id = ?";
     private static final String UPDATE_SQL = "UPDATE products SET name=?, price=?, quantity=?, category_id=? WHERE id=?";
     private static final String SEARCH_SQL = "SELECT p.* FROM products p JOIN category c ON p.category_id = c.id " + "WHERE p.name LIKE ? OR c.name LIKE ?";
     private static final String FIND_BY_CATEGORY = "SELECT * FROM products WHERE category_id = ?";
+    private static final String FIND_BY_ID = "SELECT * FROM products WHERE id = ?";
 
     @Override
-    public List<Product> findAll(int limit, int offset) {
+    public List<Product> findAll() {
         List<Product> list = new ArrayList<>();
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(SELECT_ALL)) {
-
-            ps.setInt(1, limit);
-            ps.setInt(2, offset);
 
             ResultSet rs = ps.executeQuery();
 
@@ -80,6 +78,27 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findById(int id) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(FIND_BY_ID)) {
+
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getBigDecimal("price"),
+                        rs.getInt("quantity"),
+                        rs.getInt("category_id")
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

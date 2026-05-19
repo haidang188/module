@@ -27,7 +27,8 @@ public class ProductController extends HttpServlet {
         String action = request.getParameter("action");
         if (action == null) action = "";
 
-        switch (action) {
+        switch (action)
+        {
             case "create":
                 showCreateForm(request, response);
                 break;
@@ -63,20 +64,8 @@ public class ProductController extends HttpServlet {
     private void listProduct(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int page = 1;
-        int limit = 5;
-
-        if (request.getParameter("page") != null) {
-            page = Integer.parseInt(request.getParameter("page"));
-        }
-
-        int offset = (page - 1) * limit;
-
-        List<Product> products = productService.findAll(limit, offset);
-
+        List<Product> products = productService.findAll();
         request.setAttribute("products", products);
-        request.setAttribute("currentPage", page);
-
         request.getRequestDispatcher("product/list.jsp").forward(request, response);
     }
 
