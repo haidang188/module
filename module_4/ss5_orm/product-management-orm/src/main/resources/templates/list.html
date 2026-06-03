@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head('Product List')">
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+
+
+</head>
+<body>
+<div th:replace="layout :: header "></div>
+<h1>Product Management</h1>
+
+<a href="/products/create" class="add-btn">
+    Add Product
+</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.stock}"></td>
+
+        <td>
+            <a class="edit-btn"
+               th:href="@{/products/edit/{id}(id=${product.id})}">
+                Edit
+            </a>
+        </td>
+
+        <td>
+            <a class="delete-btn"
+               th:href="@{/products/delete/{id}(id=${product.id})}"
+               onclick="return confirm('Are you sure?')">
+                Delete
+            </a>
+        </td>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(products)}">
+        <td colspan="6">
+            No product found
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="layout :: footer"></div>
+</body>
+</html>
