@@ -1,0 +1,13 @@
+package com.haidang.customermanagementjpa.service;
+
+import com.haidang.customermanagementjpa.model.Customer;
+
+import java.util.List;
+
+public interface ICustomerService {
+    List<Customer> findAll();
+    Customer findById(Long id);
+    void save(Customer customer);
+    void remove(Long id);
+
+}

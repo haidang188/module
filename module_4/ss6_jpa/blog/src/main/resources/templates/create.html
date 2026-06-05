@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head('Create Blog')}"></head>
+
+<body>
+
+<div th:replace="~{layout :: navbar}"></div>
+
+<div class="container mt-4 main-content">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Create Blog</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form th:action="@{/blogs/save}"
+                  th:object="${blog}"
+                  method="post">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Title
+                    </label>
+
+                    <input type="text"
+                           th:field="*{title}"
+                           class="form-control">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Content
+                    </label>
+
+                    <textarea rows="6"
+                              th:field="*{content}"
+                              class="form-control"></textarea>
+
+                </div>
+
+                <button class="btn btn-success">
+                    Save
+                </button>
+
+                <a th:href="@{/blogs}"
+                   class="btn btn-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+
+</body>
+</html>

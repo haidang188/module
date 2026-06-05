@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: head('Customer Details')"></head>
+
+<body>
+
+<div th:replace="layout :: navbar"></div>
+
+<div class="container mt-4 page-content">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card">
+
+                <div class="card-header bg-info text-white">
+
+                    <h4 class="mb-0">
+                        Customer Details
+                    </h4>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-3 fw-bold">
+                            ID
+                        </label>
+
+                        <div class="col-sm-9">
+
+                            <span th:text="${customer.id}"></span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-3 fw-bold">
+                            Name
+                        </label>
+
+                        <div class="col-sm-9">
+
+                            <span th:text="${customer.name}"></span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-3 fw-bold">
+                            Email
+                        </label>
+
+                        <div class="col-sm-9">
+
+                            <span th:text="${customer.email}"></span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <label class="col-sm-3 fw-bold">
+                            Address
+                        </label>
+
+                        <div class="col-sm-9">
+
+                            <span th:text="${customer.address}"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer d-flex justify-content-between">
+
+                    <a th:href="@{/customers}"
+                       class="btn btn-secondary">
+
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+
+                    </a>
+
+                    <a th:href="@{/customers/{id}/edit(id=${customer.id})}"
+                       class="btn btn-warning">
+
+                        <i class="fas fa-edit"></i>
+                        Edit Customer
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="layout :: footer"></div>
+
+</body>
+</html>
+```
