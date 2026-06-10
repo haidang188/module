@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Song</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+
+  <div class="card shadow">
+
+    <div class="card-header">
+      <h2>Edit Song</h2>
+    </div>
+
+    <div class="card-body">
+
+      <form th:action="@{/songs/update}"
+            th:object="${song}"
+            method="post">
+
+        <input type="hidden"
+               th:field="*{id}">
+
+        <!-- Song Name -->
+        <div class="mb-3">
+
+          <label class="form-label">
+            Tên bài hát
+          </label>
+
+          <input type="text"
+                 class="form-control"
+                 th:field="*{songName}"
+                 th:classappend="${#fields.hasErrors('songName')} ? ' is-invalid' : ''">
+
+          <div class="invalid-feedback"
+               th:errors="*{songName}">
+          </div>
+
+        </div>
+
+        <!-- Artist -->
+        <div class="mb-3">
+
+          <label class="form-label">
+            Nghệ sĩ
+          </label>
+
+          <input type="text"
+                 class="form-control"
+                 th:field="*{artist}"
+                 th:classappend="${#fields.hasErrors('artist')} ? ' is-invalid' : ''">
+
+          <div class="invalid-feedback"
+               th:errors="*{artist}">
+          </div>
+
+        </div>
+
+        <!-- Genre -->
+        <div class="mb-3">
+
+          <label class="form-label">
+            Thể loại
+          </label>
+
+          <input type="text"
+                 class="form-control"
+                 th:field="*{genre}"
+                 th:classappend="${#fields.hasErrors('genre')} ? ' is-invalid' : ''">
+
+          <div class="invalid-feedback"
+               th:errors="*{genre}">
+          </div>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary">
+          Update
+        </button>
+
+        <a th:href="@{/songs}"
+           class="btn btn-secondary">
+          Back
+        </a>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
