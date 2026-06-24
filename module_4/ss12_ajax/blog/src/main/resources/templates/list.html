@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head('Blog List')}"></head>
+
+<body>
+
+<div th:replace="~{layout :: navbar}"></div>
+
+<div class="container mt-4 main-content">
+
+  <div class="card">
+
+    <div class="card-header d-flex justify-content-between">
+
+      <h4>Blog List</h4>
+
+      <a th:href="@{/blogs/create}"
+         class="btn btn-primary">
+
+        New Blog
+
+      </a>
+
+    </div>
+
+    <div class="card-body">
+
+      <!-- SEARCH FORM -->
+      <div class="row mb-3">
+
+        <div class="col-md-9">
+
+          <input type="text"
+                 id="keyword"
+                 class="form-control"
+                 placeholder="Search by title...">
+
+        </div>
+
+        <div class="col-md-3">
+
+          <button type="button"
+                  id="btnSearch"
+                  class="btn btn-success w-100">
+
+            Search
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <table class="table table-hover">
+
+        <thead class="table-dark">
+
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th width="250">Action</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="blogList">
+
+        <tr th:each="blog : ${blogs}">
+
+          <td th:text="${blog.id}"></td>
+
+          <td th:text="${blog.title}"></td>
+
+          <td>
+
+            <a th:href="@{/blogs/view/{id}(id=${blog.id})}"
+               class="btn btn-info btn-sm">
+
+              View
+
+            </a>
+
+            <a th:href="@{/blogs/edit/{id}(id=${blog.id})}"
+               class="btn btn-warning btn-sm">
+
+              Edit
+
+            </a>
+
+            <a th:href="@{/blogs/delete/{id}(id=${blog.id})}"
+               class="btn btn-danger btn-sm">
+
+              Delete
+
+            </a>
+
+          </td>
+
+        </tr>
+
+        </tbody>
+
+      </table>
+      <div class="text-center mt-3">
+
+        <button id="loadMore" class="btn btn-primary">
+
+          Tải thêm
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+
+<script>
+
+  $("#btnSearch").click(function () {
+
+    let keyword = $("#keyword").val();
+
+    $.ajax({
+
+      url: "/api/blogs/search",
+
+      type: "GET",
+
+      data: {
+        keyword: keyword
+      },
+
+      success: function (blogs) {
+
+        let html = "";
+
+        for (let i = 0; i < blogs.length; i++) {
+
+          html += `
+                        <tr>
+                            <td>${blogs[i].id}</td>
+
+                            <td>${blogs[i].title}</td>
+
+                            <td>
+
+                                <a href="/blogs/view/${blogs[i].id}"
+                                   class="btn btn-info btn-sm">
+
+                                    View
+
+                                </a>
+
+                                <a href="/blogs/edit/${blogs[i].id}"
+                                   class="btn btn-warning btn-sm">
+
+                                    Edit
+
+                                </a>
+
+                                <a href="/blogs/delete/${blogs[i].id}"
+                                   class="btn btn-danger btn-sm">
+
+                                    Delete
+
+                                </a>
+
+                            </td>
+                        </tr>
+                    `;
+        }
+
+        $("#blogList").html(html);
+
+      },
+
+      error: function () {
+
+        alert("Search failed!");
+
+      }
+
+    });
+
+  });
+
+</script>
+
+<script>
+
+  let page = 0;
+
+  $("#loadMore").click(function () {
+
+    page++;
+
+    $.ajax({
+
+      url: "/api/blogs/load",
+
+      type: "GET",
+
+      data: {
+        page: page
+      },
+
+      success: function (response) {
+
+        let blogs = response.content;
+
+        if (blogs.length === 0) {
+
+          $("#loadMore").hide();
+
+          alert("Đã hết dữ liệu");
+
+          return;
+        }
+
+        let html = "";
+
+        for (let i = 0; i < blogs.length; i++) {
+
+          html += `
+                    <tr>
+                        <td>${blogs[i].id}</td>
+
+                        <td>${blogs[i].title}</td>
+
+                        <td>
+
+                            <a href="/blogs/view/${blogs[i].id}"
+                               class="btn btn-info btn-sm">
+
+                               View
+
+                            </a>
+
+                            <a href="/blogs/edit/${blogs[i].id}"
+                               class="btn btn-warning btn-sm">
+
+                               Edit
+
+                            </a>
+
+                            <a href="/blogs/delete/${blogs[i].id}"
+                               class="btn btn-danger btn-sm">
+
+                               Delete
+
+                            </a>
+
+                        </td>
+                    </tr>
+                `;
+        }
+
+        $("#blogList").append(html);
+
+      }
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>

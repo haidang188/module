@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head('Create Category')}"></head>
+
+<body>
+
+<div th:replace="~{layout :: navbar}"></div>
+
+<div class="container mt-4 main-content">
+
+  <div class="card">
+
+    <div class="card-header">
+      <h4>Create Category</h4>
+    </div>
+
+    <div class="card-body">
+
+      <form th:action="@{/categories/save}"
+            th:object="${category}"
+            method="post">
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Category Name
+          </label>
+
+          <input type="text"
+                 class="form-control"
+                 th:field="*{name}"
+                 required>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-success">
+
+          Save
+
+        </button>
+
+        <a th:href="@{/categories}"
+           class="btn btn-secondary">
+
+          Back
+
+        </a>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+
+</body>
+</html>
