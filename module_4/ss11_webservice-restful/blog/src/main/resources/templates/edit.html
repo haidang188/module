@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head('Edit Blog')}"></head>
+
+<body>
+
+<div th:replace="~{layout :: navbar}"></div>
+
+<div class="container mt-4 main-content">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Edit Blog</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form th:action="@{/blogs/update}"
+                  th:object="${blog}"
+                  method="post">
+
+                <input type="hidden"
+                       th:field="*{id}">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Title
+                    </label>
+
+                    <input type="text"
+                           th:field="*{title}"
+                           class="form-control">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Content
+                    </label>
+
+                    <textarea rows="6"
+                              th:field="*{content}"
+                              class="form-control"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category
+                    </label>
+
+                    <select name="category.id"
+                            class="form-select">
+
+                        <option th:each="c : ${categories}"
+                                th:value="${c.id}"
+                                th:text="${c.name}"
+                                th:selected="${blog.category != null && blog.category.id == c.id}">
+                        </option>
+
+                    </select>
+
+                </div>
+                <button class="btn btn-warning">
+                    Update
+                </button>
+
+                <a th:href="@{/blogs}"
+                   class="btn btn-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+
+</body>
+</html>

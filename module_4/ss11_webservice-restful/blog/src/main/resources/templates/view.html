@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head('Blog Detail')}"></head>
+
+<body>
+
+<div th:replace="~{layout :: navbar}"></div>
+
+<div class="container mt-4 main-content">
+
+  <div class="card">
+
+    <div class="card-header">
+
+      <h4>Blog Detail</h4>
+
+    </div>
+
+    <div class="card-body">
+
+      <h3 th:text="${blog.title}"></h3>
+
+      <hr>
+
+      <p th:text="${blog.content}"></p>
+
+      <a th:href="@{/blogs}"
+         class="btn btn-secondary">
+
+        Back
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+
+</body>
+</html>
